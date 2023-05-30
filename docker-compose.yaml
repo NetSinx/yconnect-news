@@ -1,0 +1,34 @@
+version: '3.9'
+
+services:
+  web:
+    container_name: yconnect-web
+    image: yasinah22/yconnect
+    pull_policy: if_not_present
+    restart: always
+    env_file: .env
+    ports:
+      - "80:80"
+    networks:
+      - yconnect-net
+    depends_on:
+      - db
+  
+  db:
+    container_name: yconnect-mysql
+    image: yasinah22/mysql-yconnect
+    pull_policy: if_not_present
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "@087878504814"
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: "@yasinah22123"
+      MYSQL_DATABASE: news
+    networks:
+      - yconnect-net
+    volumes:
+      - D:\Docker\yconnect-mysql\:/var/lib/mysql
+
+networks:
+  yconnect-net:
+    external: true

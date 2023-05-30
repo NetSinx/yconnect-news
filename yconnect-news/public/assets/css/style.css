@@ -1,0 +1,140 @@
+nav button#btn-search {
+  display: none;
+}
+
+nav form {
+  margin-right: 50px;
+}
+
+#sidebar ul li a.nav-link {
+  color: #eaeaea;
+  border-radius: 20px;
+}
+
+#sidebar ul li a.nav-link:hover {
+  background-color: #eaeaea;
+  color: #000000;
+}
+
+#sidebar ul li a.nav-link.active {
+  background-color: #eaeaea;
+  color: #000000;
+}
+
+#sidebar ul li#notifications, #sidebar ul li#chats {
+  display: none;
+}
+
+.dropdown {
+  position: fixed;
+  bottom: 0;
+}
+
+#sidebar.active {
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  transition: left 0.6s;
+}
+
+#sidebar {
+  height: 100vh;
+  position: fixed;
+  left: -50%;
+  transition: left 0.7s;
+}
+
+#dashboard {
+  position: relative;
+  left: 100px;
+  transition: left 0.7s;
+}
+
+#dashboard.active {
+  left: 240px;
+  transition: left 0.7s;
+}
+
+@media screen and (max-width: 850px) {
+  nav form input.form-control, nav form button.btn {
+    display: none;
+  }
+
+  nav form {
+    margin-right: 0;
+  }
+
+  nav button#btn-search {
+    display: block;
+  }
+
+  nav button#notifications {
+    display: none;
+    margin-right: 0;
+  }
+
+  nav button#chats {
+    display: none;
+  }
+
+  #sidebar ul li#notifications, #sidebar ul li#chats {
+    display: block;
+  }
+
+  #sidebar.inactive-phone {
+    position: fixed;
+    height: max-content;
+    width: 100%;
+    top: -500px;
+    left: 0;
+    transition: top 0.7s;
+    z-index: 2;
+  }
+  
+  #sidebar.active-phone {
+    height: max-content;
+    width: 100%;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    transition: top 0.7s;
+    z-index: 2;
+  }
+
+  #sidebar.active {
+    left: 0;
+  }
+
+  #sidebar ul {
+    margin-bottom: 0;
+  }
+
+  hr.sidebar, .dropdown {
+    position: relative;
+    top: 0;
+  }
+
+  #dashboard.active {
+    left: 0;
+  }
+
+  #dashboard.inactive-phone {
+    position: relative;
+    top: 0;
+    transition: top 0.7s;
+    left: 30px;
+  }
+  
+  #dashboard.active-phone {
+    position: relative;
+    top: 400px;
+    transition: top 0.7s;
+  }
+}
+
+@media screen and (max-width: 1154px) {
+  #dashboard.active {
+    left: 200px;
+    transition: left 0.7s;
+  }
+}

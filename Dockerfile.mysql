@@ -1,0 +1,5 @@
+FROM mysql
+
+COPY yconnect-news.sql .
+
+RUN iconv -f UTF-16 -t ASCII yconnect-news.sql -o yconnect-news.sql
