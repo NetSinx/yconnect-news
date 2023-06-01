@@ -11,7 +11,9 @@ class LoginController extends Controller
 {
   public function index()
   {
-    return view('login.index');
+    $retry = RateLimiter::attempts(request()->input('email'));
+
+    return view('login.index', ['retry' => $retry]);
   }
 
   public function login(Request $request)

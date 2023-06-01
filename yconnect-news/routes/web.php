@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ResetPasswdController;
 use App\Models\Categories;
 use App\Models\Posts;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,18 @@ Route::middleware('guest')->group(function() {
   Route::get('/sign-up', [RegisterController::class, 'index']);
 
   Route::post('/sign-up', [RegisterController::class, 'register']);
+
+  Route::get('/forgot-password', [ResetPasswdController::class, 'index'])
+  ->name('password.request');
+
+  Route::post('/forgot-password', [ResetPasswdController::class, 'sendResetPasswd'])
+  ->name('password.email');
+
+  Route::get('/reset-password/{token}', [ResetPasswdController::class, 'formResetPasswd'])
+  ->name('password.reset');
+
+  Route::post('/reset-password', [ResetPasswdController::class, 'resetPasswd'])
+  ->name('password.update');
 });
 
 Route::middleware('auth')->group(function() {

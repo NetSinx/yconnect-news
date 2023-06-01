@@ -19,6 +19,7 @@
       @elseif (session('success'))
       <div class="alert alert-success mt-2 mx-3" role="alert">
         {{ session('success') }}
+        <button type="button" data-bs-dismiss="alert" class="btn-close float-end" aria-label="close"></button>
       </div>
       @endif
 
@@ -52,6 +53,9 @@
 
         <div class="row">
           <button class="btn btn-primary mb-3">Login</button>
+          @if( session('retries') )
+          <p class="text-center"><a href="/forgot-password">Lupa Password</a></p>
+          @endif
           <p>Tidak punya akun? <a href="/sign-up">Daftar</a></p>
         </div>
       </form>

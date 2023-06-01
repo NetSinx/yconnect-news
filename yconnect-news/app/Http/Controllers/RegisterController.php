@@ -32,6 +32,7 @@ class RegisterController extends Controller
             'nama.required' => 'Nama lengkap wajib diisi!',
             'username.required' => 'Username wajib diisi!',
             'username.min' => 'Username minimal 3 karakter!',
+            'username.unique' => 'Username sudah ada yang menggunakan. Gunakan username yang lain!',
             'email.required' => 'Alamat email wajib diisi!',
             'email.unique' => 'Alamat email sudah terdaftar! Gunakan email yang lain.',
             'email.email.dns' => 'Format alamat email salah!',
